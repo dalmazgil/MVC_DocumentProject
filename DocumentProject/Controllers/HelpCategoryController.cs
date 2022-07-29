@@ -10,6 +10,7 @@ namespace DocumentProject.Controllers
     public class HelpCategoryController : Controller
     {
         // GET: HelpCategory
+        // Ders 32. Breakpoints
 
         HelpCategoryManager hcm = new HelpCategoryManager();
 
