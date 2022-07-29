@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IHelpCategoryService.cs" />
     <Compile Include="Concrete\HelpCategoryManager.cs" />
     <Compile Include="Concrete\HelpDocumentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

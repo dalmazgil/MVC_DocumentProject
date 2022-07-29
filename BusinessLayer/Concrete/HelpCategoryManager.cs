@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concrete.Repository;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Repository;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,32 +10,41 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class HelpCategoryManager
+    public class HelpCategoryManager:IHelpCategoryService
     {
-        HelpCategoryRepository repo = new HelpCategoryRepository();
+        //HelpCategoryRepository repo = new HelpCategoryRepository();
 
-        public void DenemeBL()
+        IHelpCategoryDal _categoryDal;
+
+        public HelpCategoryManager(IHelpCategoryDal categoryDal)
         {
-            repo.CategoryDeneme();
+            _categoryDal = categoryDal;
         }
 
         public List<HelpCategory> GetAllBL()
         {
-            return repo.GetAll();
+            return _categoryDal.GetAll();
         }
 
-        public void HelpCategoryAddBL(HelpCategory entity)
-        {
-            if(entity.Description.Length == 0)
-            {
-                // hata mesajı
-                // burası için ayrı bir dosya oluşturulacaktır.
-            }
-            else
-            {
-                repo.Add(entity);   
-            }
-        }
+
+        //public void DenemeBL()
+        //{
+        //    repo.CategoryDeneme();
+        //}
+
+        //public void HelpCategoryAddBL(HelpCategory entity)
+        //{
+        //    if(entity.Description.Length == 0)
+        //    {
+        //        Console.WriteLine("Hata alındı");
+        //        // hata mesajı
+        //        // burası için ayrı bir dosya oluşturulacaktır.
+        //    }
+        //    else
+        //    {
+        //        repo.Add(entity);   
+        //    }
+        //}
 
     }
 }

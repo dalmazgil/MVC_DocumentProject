@@ -1,8 +1,7 @@
-﻿using BusinessLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
+using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System.Web.Mvc;
 
 namespace DocumentProject.Controllers
@@ -10,9 +9,9 @@ namespace DocumentProject.Controllers
     public class HelpCategoryController : Controller
     {
         // GET: HelpCategory
-        // Ders 32. Breakpoints
+        // Ders 29: Entity FrameworkDal
 
-        HelpCategoryManager hcm = new HelpCategoryManager();
+        HelpCategoryManager hcm = new HelpCategoryManager(new EfHelpCategoryDal());
 
         public ActionResult Index()
         {
@@ -23,6 +22,19 @@ namespace DocumentProject.Controllers
         {
             var helpcategoryvalues = hcm.GetAllBL();
             return View(helpcategoryvalues);    
+        }
+
+        [HttpGet]
+        public ActionResult AddHelpCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddHelpCategory(HelpCategory entity)
+        {
+            //hcm.HelpCategoryAddBL(entity);
+            return RedirectToAction("GetHelpCategoryList");
         }
     }
 }
