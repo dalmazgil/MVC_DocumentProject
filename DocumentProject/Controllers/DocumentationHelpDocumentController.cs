@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace DocumentProject.Controllers
 {
-    public class DocumentHelpCategoryController : Controller
+    public class DocumentationHelpDocumentController : Controller
     {
-        // GET: DocumentHelpCategory
+        // GET: DocumentationHelpDocument
         public ActionResult Index()
         {
             return View();

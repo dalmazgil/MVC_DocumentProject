@@ -61,10 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IHelpCategoryService.cs" />
+    <Compile Include="Abstract\IHelpDocumentService.cs" />
     <Compile Include="Concrete\HelpCategoryManager.cs" />
     <Compile Include="Concrete\HelpDocumentManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\HelpCategoryValidator.cs" />
+    <Compile Include="ValidationRules\HelpDocumentValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

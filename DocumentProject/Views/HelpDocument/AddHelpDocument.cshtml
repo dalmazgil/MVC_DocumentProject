@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.HelpDocument
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddHelpDocument</title>
+</head>
+<body>
+    <h1>HelpDocument eleman ekleme</h1>
+    <br />
+    @using (Html.BeginForm("AddHelpDocument", "HelpDocument", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Kategori Numarası")
+            @Html.TextBoxFor(x => x.HelpCategoriesId);
+            @Html.ValidationMessageFor(x => x.HelpCategoriesId);
+            <br /><br />
+            @Html.Label("Doküman Başlığı");
+            @Html.TextBoxFor(x => x.Title);
+            @Html.ValidationMessageFor(x => x.Title);
+            <br /><br />
+            @Html.Label("Doküman İçeriği");
+            @Html.TextBoxFor(x => x.Body);
+            @Html.ValidationMessageFor(x => x.Body);
+            <br /><br />
+            @Html.Label("Doküman Sırası");
+            @Html.TextBoxFor(x => x.Order);
+            @Html.ValidationMessageFor(x => x.Order);
+            <br /><br />
+            <button>Kaydet</button>
+        </div>
+    }
+
+</body>
+</html>
+
+
+

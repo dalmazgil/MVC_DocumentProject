@@ -14,21 +14,26 @@ namespace BusinessLayer.Concrete
     {
         //HelpCategoryRepository repo = new HelpCategoryRepository();
 
-        IHelpCategoryDal _categoryDal;
+        IHelpCategoryDal _helpCategoryDal;
 
         public HelpCategoryManager(IHelpCategoryDal categoryDal)
         {
-            _categoryDal = categoryDal;
+            _helpCategoryDal = categoryDal;
         }
 
         public void AddBL(HelpCategory category)
         {
-            _categoryDal.Add(category);
+            _helpCategoryDal.Add(category);
         }
 
         public List<HelpCategory> GetAllBL()
         {
-            return _categoryDal.GetAll();
+            return _helpCategoryDal.GetAll();
+        }
+
+        public HelpCategory GetBL(int id)
+        {
+            return _helpCategoryDal.Get(x => x.Id == id);
         }
 
 

@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IHelpCategoryService
+    public interface IHelpDocumentService
     {
-        List<HelpCategory> GetAllBL();
-        void AddBL(HelpCategory category);
-        HelpCategory GetBL(int id);
+        List<HelpDocument> GetAllBL();
+        void AddBL(HelpDocument document);
+        HelpDocument GetBL(int id);
     }
 }

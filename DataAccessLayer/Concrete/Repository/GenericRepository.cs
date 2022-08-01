@@ -31,7 +31,7 @@ namespace DataAccessLayer.Concrete.Repository
             context.SaveChanges();
         }
 
-        public List<T> Get(Expression<Func<T, bool>> filter)
+        public List<T> List(Expression<Func<T, bool>> filter)
         {
             return _object.Where(filter).ToList();
         }
@@ -44,6 +44,11 @@ namespace DataAccessLayer.Concrete.Repository
         public void Update(T entity)
         {
             context.SaveChanges();
+        }
+
+        T IGenericDal<T>.Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
         }
     }
 }

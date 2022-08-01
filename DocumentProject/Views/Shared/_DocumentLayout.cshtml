@@ -48,8 +48,9 @@
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
 
-    <script>var mybutton = document.getElementById("myBtn");
-        window.onscroll = function() {scrollFunction()};
+    <script>
+    var mybutton = document.getElementById("myBtn");
+        window.onscroll = function () { scrollFunction() };
         function scrollFunction() {
             if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
                 mybutton.style.display = "block";
@@ -63,7 +64,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            document.querySelector('#mode').addEventListener('click',()=>{
+            document.querySelector('#mode').addEventListener('click', () => {
                 document.querySelector('html').classList.toggle('dark');
             })
         });</script>
@@ -145,15 +146,16 @@
                                 <div class="row">
 
                                     <div class="col-md-12 full">
-                                        <div class="intro1">
-                                            <ul>
-                                                <li><strong>Item Name : </strong>Gather Responsive Event Template</li>
-                                                <li><strong>Item Version : </strong> v 1.0</li>
-                                                <li><strong>Author  : </strong> <a href="http://themeforest.net/user/surjithctly" target="_blank">Surjith S M</a></li>
-                                                <li><strong>Support Forum : </strong> <a href="https://support.surjithctly.in/forums" target="_blank">https://support.surjithctly.in/forums</a></li>
-                                                <li><strong>License : </strong> <a href="#" target="_blank">Un License</a></li>
-                                            </ul>
-                                        </div>
+                                        @RenderBody()
+                                        @*<div class="intro1">
+                                                <ul>
+                                                    <li><strong>Item Name : </strong>Gather Responsive Event Template</li>
+                                                    <li><strong>Item Version : </strong> v 1.0</li>
+                                                    <li><strong>Author  : </strong> <a href="http://themeforest.net/user/surjithctly" target="_blank">Surjith S M</a></li>
+                                                    <li><strong>Support Forum : </strong> <a href="https://support.surjithctly.in/forums" target="_blank">https://support.surjithctly.in/forums</a></li>
+                                                    <li><strong>License : </strong> <a href="#" target="_blank">Un License</a></li>
+                                                </ul>
+                                            </div>*@
 
                                         <hr>
                                         <div>
@@ -781,24 +783,23 @@
                     <section id="line11" class="section">
 
                         <div class="row">
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Copyright and license <hr></h2>
-                                @RenderBody()
+                            <div class="row">
+                                <div class="col-md-12 left-align">
+                                    <h2 class="dark-text">Copyright and license <hr></h2>
+                                </div>
+                                <!-- end col -->
                             </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                            <!-- end row -->
 
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
 
-                                <p>Code released under the <a href="#" target="_blank">Un License</a> License.</p>
-                                <p>For more information about copyright and license check <a href=" https://choosealicense.com/licenses/unlicense/" target="_blank">choosealicense.com</a>.</p>
+                                    <p>Code released under the <a href="#" target="_blank">Un License</a> License.</p>
+                                    <p>For more information about copyright and license check <a href=" https://choosealicense.com/licenses/unlicense/" target="_blank">choosealicense.com</a>.</p>
 
+                                </div>
                             </div>
-                        </div>
-                        <!-- end row -->
+                            <!-- end row -->
 
                     </section>
                     <!-- end section -->
