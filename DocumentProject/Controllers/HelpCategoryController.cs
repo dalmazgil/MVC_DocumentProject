@@ -1,7 +1,9 @@
 ﻿
 using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System.Web.Mvc;
 
 namespace DocumentProject.Controllers
@@ -34,7 +36,21 @@ namespace DocumentProject.Controllers
         public ActionResult AddHelpCategory(HelpCategory entity)
         {
             //hcm.HelpCategoryAddBL(entity);
-            return RedirectToAction("GetHelpCategoryList");
+            HelpCategoryValidator hcv = new HelpCategoryValidator();
+            ValidationResult results = hcv.Validate(entity);
+            if (results.IsValid)
+            {
+                hcm.AddBL(entity);
+                return RedirectToAction("GetHelpCategoryList");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }

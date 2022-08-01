@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
     public interface IHelpCategoryService
     {
         List<HelpCategory> GetAllBL();
+        void AddBL(HelpCategory category);
     }
 }
