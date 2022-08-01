@@ -52,10 +52,19 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.11.1.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +136,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DocumentHelpCategoryController.cs" />
     <Compile Include="Controllers\HelpCategoryController.cs" />
     <Compile Include="Controllers\HelpDocumentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -140,12 +150,147 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Documentation_Template\.gitattributes" />
+    <Content Include="Documentation_Template\css\animate.css" />
+    <Content Include="Documentation_Template\css\bootstrap-theme.css" />
+    <Content Include="Documentation_Template\css\bootstrap-theme.min.css" />
+    <Content Include="Documentation_Template\css\bootstrap.css" />
+    <Content Include="Documentation_Template\css\bootstrap.min.css" />
+    <Content Include="Documentation_Template\css\custom.css" />
+    <Content Include="Documentation_Template\css\prettyPhoto.css" />
+    <Content Include="Documentation_Template\css\stroke.css" />
+    <Content Include="Documentation_Template\css\style.css" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\css\font-awesome.css" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\css\font-awesome.min.css" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Documentation_Template\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Documentation_Template\fonts\lanenar_Lane.svg" />
+    <Content Include="Documentation_Template\fonts\Stroke-Gap-Icons.svg" />
+    <Content Include="Documentation_Template\images\dummy.png" />
+    <Content Include="Documentation_Template\images\favicon.ico" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Documentation_Template\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Documentation_Template\images\upload\bg.png" />
+    <Content Include="Documentation_Template\images\upload\plugin1.png" />
+    <Content Include="Documentation_Template\images\upload\plugin2.png" />
+    <Content Include="Documentation_Template\images\upload\plugin3.png" />
+    <Content Include="Documentation_Template\images\upload\thumbnail.png" />
+    <Content Include="Documentation_Template\index.html" />
+    <Content Include="Documentation_Template\js\bootstrap.js" />
+    <Content Include="Documentation_Template\js\bootstrap.min.js" />
+    <Content Include="Documentation_Template\js\custom.js" />
+    <Content Include="Documentation_Template\js\jquery.fitvids.js" />
+    <Content Include="Documentation_Template\js\jquery.min.js" />
+    <Content Include="Documentation_Template\js\jquery.prettyPhoto.js" />
+    <Content Include="Documentation_Template\js\main.js" />
+    <Content Include="Documentation_Template\js\retina.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCore.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="Documentation_Template\js\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="Documentation_Template\js\wow.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Documentation_Template\css\bootstrap-theme.css.map" />
+    <Content Include="Documentation_Template\css\bootstrap.css.map" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Documentation_Template\fonts\font-awesome-4.3.0\fonts\FontAwesome.otf" />
+    <Content Include="Documentation_Template\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Documentation_Template\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Documentation_Template\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Documentation_Template\fonts\lanenar_Lane.eot" />
+    <Content Include="Documentation_Template\fonts\lanenar_Lane.ttf" />
+    <Content Include="Documentation_Template\fonts\lanenar_Lane.woff" />
+    <Content Include="Documentation_Template\fonts\Stroke-Gap-Icons.eot" />
+    <Content Include="Documentation_Template\fonts\Stroke-Gap-Icons.ttf" />
+    <Content Include="Documentation_Template\fonts\Stroke-Gap-Icons.woff" />
+    <Content Include="Documentation_Template\js\jquery.min.map" />
+    <Content Include="Documentation_Template\LICENSE" />
+    <Content Include="Documentation_Template\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -174,6 +319,9 @@
     <Content Include="Views\HelpCategory\Index.cshtml" />
     <Content Include="Views\HelpDocument\Index.cshtml" />
     <Content Include="Views\HelpCategory\GetHelpCategoryList.cshtml" />
+    <Content Include="Views\HelpCategory\AddHelpCategory.cshtml" />
+    <Content Include="Views\Shared\_DocumentLayout.cshtml" />
+    <Content Include="Views\DocumentHelpCategory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.HelpCategory
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddHelpCategory</title>
+</head>
+<body>
+    <h1>HelpCategory eleman ekleme</h1>
+    <br />
+    @using (Html.BeginForm("AddHelpCategory", "HelpCategory", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("Kategori Adı")
+            @Html.TextBoxFor(x => x.Name);
+            @Html.ValidationMessageFor(x => x.Name);
+            <br /><br />
+            @Html.Label("Kategori Açıklaması");
+            @Html.TextBoxFor(x => x.Description);
+            @Html.ValidationMessageFor(x => x.Description);
+            <br /><br />
+            @Html.Label("Kategori Resim URL");
+            @Html.TextBoxFor(x => x.Image);
+            @Html.ValidationMessageFor(x => x.Image);
+            <br /><br />
+            <button>Kaydet</button>
+        </div>
+    }
+
+    @*<form class="form-group" method="post">
+            <input type="text" placeholder="Categori Adı" name="Name" class="form-control" />
+            <br />
+            <input type="text" placeholder="Categori Açıklaması" name="Description" class="form-control" />
+            <br />
+            <input type="text" placeholder="Categori Resmi" name="Image" class="form-control" />
+            <br />
+            <button class="btn btn-primary">Ekle</button>
+        </form>*@
+</body>
+</html>
+

@@ -58,6 +58,8 @@
     <Compile Include="Concrete\Repository\GenericRepository.cs" />
     <Compile Include="Concrete\Repository\HelpCategoryRepository.cs" />
     <Compile Include="Concrete\Repository\HelpDocumentRepository.cs" />
+    <Compile Include="EntityFramework\EfHelpDocumentDal.cs" />
+    <Compile Include="EntityFramework\EfHelpCategoryDal.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +73,7 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
