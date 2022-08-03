@@ -23,24 +23,29 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Image</th>
-                <th>Güncelle</th>
-                <th>Sil</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>Tables</th>
+                <th>Documentation</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td>@item.Description</td>
-                    <td>@item.Image</td>
-                    <td><a href="#" class="btn btn-warning">Güncelle</a></td>
-                    <td><a href="#" class="btn btn-danger">Sil</a></td>
-                </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Image</td>
+            <td><a href="/HelpCategory/UpdateHelpCategory/@item.Id" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/HelpCategoryController/DeleteHelpCategory/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/HelpDocument/GetAllByHelpCategoriesId/@item.Id" class="btn btn-success">@item.Name Tablosu</a></td>
+            <td><a href="/HelpDocument/Index/@item.Id" class="btn btn-default">@item.Name Dokümanı</a></td>
+        </tr>
             }
 
         </table>
         <br />
         <a href="/HelpCategory/AddHelpCategory" class="btn btn-info">Yeni Kategori</a>
+        <a href="/HelpDocument/GetHelpDocumentList" class="btn btn-default">Doküman Görüntüle</a>
     </div>
 </body>
 </html>

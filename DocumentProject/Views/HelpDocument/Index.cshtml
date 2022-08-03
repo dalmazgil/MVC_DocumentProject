@@ -1,39 +1,66 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<HelpDocument>
+
+
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_DocumentLayout.cshtml";
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@section navbar{
+    <section id="top" class="section docs-heading">
 
-<!DOCTYPE html>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="big-title text-center">
+                    <h1>@ViewBag.mesaj</h1>
+                    <p class="lead">Your awesome theme / template documentation version 1.0</p>
+                </div>
+                <!-- end title -->
+            </div>
+            <!-- end 12 -->
+        </div>
+        <!-- end row -->
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <p>Burası HelpDocument Index Sayfasıdır.</p>
-        <table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>CategoryId</th>
-                <th>Title</th>
-                <th>Body</th>
-                <th>Order</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>Burası Id</td>
-                <td>Burası CategoryId</td>
-                <td>Burası Title</td>
-                <td>Burası Body</td>
-                <td>Burası Order</td>
-                <td>Burası Description</td>
-            </tr>
+        <hr>
+    </section>
+}
 
-        </table>
+@section menu{
+    <div class="col-md-3">
+        <nav class="docs-sidebar" data-spy="affix" data-offset-top="300" data-offset-bottom="200" role="navigation">
+            <ul class="nav">
+                @foreach (var item in Model.Select((value, i) => new { i, value }))
+                {
+                    var value = item.value;
+                    var index = item.i;
+                    <li>@value.Title</li>
+                }
+            </ul>
+        </nav>
     </div>
-</body>
-</html>
+}
+
+<div class="col-md-9">
+    @foreach (var item in Model.Select((value, i) => new { i, value }))
+    {
+        var value = item.value;
+        var index = item.i;
+        <section class="welcome">
+
+            <div class="row">
+                <div class="col-md-12 left-align">
+                    <h2 class="dark-text">@value.Title</h2>
+                    <div class="row">
+                        <div class="col-md-12 full">
+                            <div>
+                                <p>@value.Body</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+</div>
+

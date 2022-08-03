@@ -11,7 +11,10 @@ namespace BusinessLayer.Abstract
     public interface IHelpDocumentService
     {
         List<HelpDocument> GetAllBL();
+        List<HelpDocument> GetAllByHelpCategoriesId(int id);
         void AddBL(HelpDocument document);
         HelpDocument GetBL(int id);
+        void HelpDocumentDelete(HelpDocument document);
+        void HelpDocumentUpdate(HelpDocument document);
     }
 }

@@ -30,5 +30,24 @@ namespace BusinessLayer.Concrete
             return _helpDocumentDal.GetAll();
         }
 
+        public List<HelpDocument> GetAllByHelpCategoriesId(int id)
+        {
+            return _helpDocumentDal.List(x => x.HelpCategoriesId == id);
+        }
+
+        public HelpDocument GetBL(int id)
+        {
+            return _helpDocumentDal.Get(x => x.Id == id);
+        }
+
+        public void HelpDocumentDelete(HelpDocument document)
+        {
+            _helpDocumentDal.Delete(document);
+        }
+
+        public void HelpDocumentUpdate(HelpDocument document)
+        {
+            _helpDocumentDal.Update(document);
+        }
     }
 }

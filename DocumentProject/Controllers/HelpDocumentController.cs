@@ -18,9 +18,11 @@ namespace DocumentProject.Controllers
 
         HelpDocumentManager hdm = new HelpDocumentManager(new EfHelpDocumentDal());
 
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            var helpdocumentvalues = hdm.GetAllByHelpCategoriesId(id);
+            ViewBag.mesaj = "deneme";
+            return View(helpdocumentvalues);
         }
 
         public ActionResult GetHelpDocumentList()
@@ -54,6 +56,33 @@ namespace DocumentProject.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult DeleteHelpDocument(int id)
+        {
+            var helpdocumentvalues = hdm.GetBL(id);
+            hdm.HelpDocumentDelete(helpdocumentvalues);
+            return RedirectToAction("GetHelpDocumentList");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateHelpDocument(int id)
+        {
+            var helpdocumentvalues = hdm.GetBL(id);
+            return View(helpdocumentvalues);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateHelpDocument(HelpDocument entity)
+        {
+            hdm.HelpDocumentUpdate(entity);
+            return RedirectToAction("GetHelpDocumentList");
+        }
+
+        public ActionResult GetAllByHelpCategoriesId(int id)
+        {
+            var helpdocumentvalues = hdm.GetAllByHelpCategoriesId(id);
+            return View(helpdocumentvalues);
         }
     }
 }

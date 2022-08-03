@@ -17,7 +17,8 @@ namespace DocumentProject.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var helpcategoryvalues = hcm.GetAllBL();
+            return View(helpcategoryvalues);
         }
 
         public ActionResult GetHelpCategoryList()
@@ -51,6 +52,27 @@ namespace DocumentProject.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult DeleteHelpCategory(int id)
+        {
+            var helpcategoryvalues = hcm.GetBL(id);
+            hcm.HelpCategoryDelete(helpcategoryvalues);
+            return RedirectToAction("GetHelpCategoryList");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateHelpCategory(int id)
+        {
+            var helpcategoryvalues = hcm.GetBL(id);
+            return View(helpcategoryvalues);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateHelpCategory(HelpCategory entity)
+        {
+            hcm.HelpCategoryUpdate(entity);
+            return RedirectToAction("GetHelpCategoryList");
         }
     }
 }

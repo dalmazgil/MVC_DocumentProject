@@ -12,5 +12,7 @@ namespace BusinessLayer.Abstract
         List<HelpCategory> GetAllBL();
         void AddBL(HelpCategory category);
         HelpCategory GetBL(int id);
+        void HelpCategoryDelete(HelpCategory category);
+        void HelpCategoryUpdate(HelpCategory category);
     }
 }

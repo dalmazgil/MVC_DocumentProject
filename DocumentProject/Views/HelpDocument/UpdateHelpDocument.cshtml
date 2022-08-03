@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.HelpDocument
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Doküman Güncelleme Sayfası</h2>
+@using (Html.BeginForm("UpdateHelpDocument", "HelpDocument", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Numarası")
+        @Html.TextBoxFor(x => x.HelpCategoriesId, new { @class = "form-control" })
+        <br /><br />
+        @Html.Label("Doküman Başlığı")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br /><br />
+        @Html.Label("Doküman İçeriği")
+        @Html.TextAreaFor(x => x.Body, new { @class = "form-control", style = "height:150px" })
+        <br /><br />
+        @Html.Label("Doküman Sırası")
+        @Html.TextBoxFor(x => x.Order, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

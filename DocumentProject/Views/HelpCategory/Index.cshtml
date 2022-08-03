@@ -1,35 +1,62 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<HelpCategory>
+
 @{
     Layout = null;
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Documentation_Template/css/manuel.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Documentation_Template/css/manuel.css" />
 </head>
 <body>
-    <div>
-        <p>Burası HelpCategory Index Sayfasıdır.</p>
-        <table class="table table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-            </tr>
-            <tr>
-                <td>Burası Id</td>
-                <td>Burası Name</td>
-                <td>Burası Description</td>
-                <td>Burası Image</td>
-            </tr>
+    <header>
+        <nav>
+            <div class="nav__logo">
+                <h3>Dokümantasyon</h3>
+            </div>
+            <ul class="nav__menu">
+                <li>
+                </li>
 
-        </table>
+                <li>
+                </li>
+
+                <li>
+                </li>
+
+                <li class="nav__search">
+                    <input class="nav__input" placeholder="Search..." />
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="categories">
+        <h2>Ana Kategoriler</h2>
+        <div class="category__elements">
+            @foreach (var item in Model.Select((value, i) => new { i, value }))
+            {
+                var value = item.value;
+                var index = item.i;
+
+                <a href="/HelpDocument/Index/@value.Id" class="category">
+                    <img src="https://images.unsplash.com/photo-1659468525744-314c75acdd38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3732&q=80"
+                         alt="" />
+                    <div class="category__body">
+                        <h3>@value.Name</h3>
+                        <p>@value.Description</p>
+                    </div>
+                </a>
+
+            }
+        </div>
     </div>
 </body>
 </html>
+

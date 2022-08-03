@@ -36,6 +36,17 @@ namespace BusinessLayer.Concrete
             return _helpCategoryDal.Get(x => x.Id == id);
         }
 
+        public void HelpCategoryDelete(HelpCategory category)
+        {
+            _helpCategoryDal.Delete(category);
+        }
+
+        public void HelpCategoryUpdate(HelpCategory category)
+        {
+            _helpCategoryDal.Update(category);
+        }
+
+
 
         //public void DenemeBL()
         //{

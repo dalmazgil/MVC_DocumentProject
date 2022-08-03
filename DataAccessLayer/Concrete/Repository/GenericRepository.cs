@@ -21,13 +21,17 @@ namespace DataAccessLayer.Concrete.Repository
 
         public void Add(T entity)
         {
-            _object.Add(entity);
+            var addedEntity = context.Entry(entity);
+            addedEntity.State = EntityState.Added;
+            // _object.Add(entity);
             context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
-           _object.Remove(entity);
+            var deletedEntity = context.Entry(entity);
+            deletedEntity.State = EntityState.Deleted;
+           // _object.Remove(entity);
             context.SaveChanges();
         }
 
@@ -43,10 +47,12 @@ namespace DataAccessLayer.Concrete.Repository
 
         public void Update(T entity)
         {
+            var updatedEntity = context.Entry(entity);
+            updatedEntity.State = EntityState.Modified;
             context.SaveChanges();
         }
 
-        T IGenericDal<T>.Get(Expression<Func<T, bool>> filter)
+        public T Get(Expression<Func<T, bool>> filter)
         {
             return _object.SingleOrDefault(filter);
         }

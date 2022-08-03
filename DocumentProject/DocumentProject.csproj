@@ -155,6 +155,7 @@
     <Content Include="Documentation_Template\css\bootstrap.css" />
     <Content Include="Documentation_Template\css\bootstrap.min.css" />
     <Content Include="Documentation_Template\css\custom.css" />
+    <Content Include="Documentation_Template\css\manuel.css" />
     <Content Include="Documentation_Template\css\prettyPhoto.css" />
     <Content Include="Documentation_Template\css\stroke.css" />
     <Content Include="Documentation_Template\css\style.css" />
@@ -319,6 +320,9 @@
     <Content Include="Views\DocumentationHelpCategory\Index.cshtml" />
     <Content Include="Views\HelpDocument\AddHelpDocument.cshtml" />
     <Content Include="Views\HelpDocument\GetHelpDocumentList.cshtml" />
+    <Content Include="Views\HelpDocument\UpdateHelpDocument.cshtml" />
+    <Content Include="Views\HelpCategory\UpdateHelpCategory.cshtml" />
+    <Content Include="Views\HelpDocument\GetAllByHelpCategoriesId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
