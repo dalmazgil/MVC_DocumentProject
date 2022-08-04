@@ -18,10 +18,14 @@ namespace DocumentProject.Controllers
 
         HelpDocumentManager hdm = new HelpDocumentManager(new EfHelpDocumentDal());
 
-        public ActionResult Index(int id)
+        [Route("HelpDocument/Index/{id}/{order}")]
+        public ActionResult Index(int id,int order)
         {
             var helpdocumentvalues = hdm.GetAllByHelpCategoriesId(id);
-            ViewBag.mesaj = "deneme";
+            //helpdocumentvalues.Add(hdm.GetByOrder(order));
+            //Console.WriteLine(helpdocumentvalues);
+            ViewBag.id = id;
+            ViewBag.order = order;
             return View(helpdocumentvalues);
         }
 
@@ -82,6 +86,11 @@ namespace DocumentProject.Controllers
         public ActionResult GetAllByHelpCategoriesId(int id)
         {
             var helpdocumentvalues = hdm.GetAllByHelpCategoriesId(id);
+            return View(helpdocumentvalues);
+        }
+        public ActionResult GetByTitle(string sentence)
+        {
+            var helpdocumentvalues = hdm.GetByTitle(sentence);
             return View(helpdocumentvalues);
         }
     }

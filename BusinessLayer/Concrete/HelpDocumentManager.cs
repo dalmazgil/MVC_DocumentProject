@@ -40,6 +40,16 @@ namespace BusinessLayer.Concrete
             return _helpDocumentDal.Get(x => x.Id == id);
         }
 
+        public HelpDocument GetByOrder(int order_id)
+        {
+            return _helpDocumentDal.Get(x => x.Order == order_id);
+        }
+
+        public HelpDocument GetByTitle(string sentence)
+        {
+            return _helpDocumentDal.Get(x => x.Title == sentence);
+        }
+
         public void HelpDocumentDelete(HelpDocument document)
         {
             _helpDocumentDal.Delete(document);

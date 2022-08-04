@@ -6,15 +6,30 @@
     Layout = "~/Views/Shared/_DocumentLayout.cshtml";
 }
 
+
 @section navbar{
     <section id="top" class="section docs-heading">
 
         <div class="row">
             <div class="col-md-12">
                 <div class="big-title text-center">
-                    <h1>@ViewBag.mesaj</h1>
-                    <p class="lead">Your awesome theme / template documentation version 1.0</p>
+                    @if (ViewBag.id == 1)
+                    {
+                        <h1>Forms Dokümanı</h1>
+                        <h3 class="lead"><a href="/HelpCategory/Index/">Kategori Sayfası</a></h3>
+                    }
+                    else if (ViewBag.id == 2)
+                    {
+                        <h1>Chatbot Dokümanı</h1>
+                        <h3 class="lead"><a href="/HelpCategory/Index/">Kategori Sayfası</a></h3>
+                    }
+                    else
+                    {
+                        <h1>Mobil Dokümanı</h1>
+                        <h3 class="lead"><a href="/HelpCategory/Index/">Kategori Sayfası</a></h3>
+                    }
                 </div>
+                
                 <!-- end title -->
             </div>
             <!-- end 12 -->
@@ -33,7 +48,7 @@
                 {
                     var value = item.value;
                     var index = item.i;
-                    <li>@value.Title</li>
+                    <li><a href="/HelpDocument/Index/@value.HelpCategoriesId/@value.Order">@value.Title</a></li>
                 }
             </ul>
         </nav>
@@ -43,23 +58,27 @@
 <div class="col-md-9">
     @foreach (var item in Model.Select((value, i) => new { i, value }))
     {
+
         var value = item.value;
         var index = item.i;
-        <section class="welcome">
+        if (ViewBag.order == value.Order)
+        {
+            <section class="welcome">
 
-            <div class="row">
-                <div class="col-md-12 left-align">
-                    <h2 class="dark-text">@value.Title</h2>
-                    <div class="row">
-                        <div class="col-md-12 full">
-                            <div>
-                                <p>@value.Body</p>
+                <div class="row">
+                    <div class="col-md-12 left-align">
+                        <h2 class="dark-text">@value.Title</h2>
+                        <div class="row">
+                            <div class="col-md-12 full">
+                                <div>
+                                    <p>@value.Body</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        }
     }
 
 </div>

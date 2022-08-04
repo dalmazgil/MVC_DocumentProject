@@ -14,6 +14,8 @@ namespace BusinessLayer.Abstract
         List<HelpDocument> GetAllByHelpCategoriesId(int id);
         void AddBL(HelpDocument document);
         HelpDocument GetBL(int id);
+        HelpDocument GetByTitle(string sentence);
+        HelpDocument GetByOrder(int order_id);
         void HelpDocumentDelete(HelpDocument document);
         void HelpDocumentUpdate(HelpDocument document);
     }
