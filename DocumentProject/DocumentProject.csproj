@@ -167,6 +167,7 @@
     <Content Include="Documentation_Template\css\bootstrap-theme.min.css" />
     <Content Include="Documentation_Template\css\bootstrap.css" />
     <Content Include="Documentation_Template\css\bootstrap.min.css" />
+    <Content Include="Documentation_Template\css\chatbot.css" />
     <Content Include="Documentation_Template\css\custom.css" />
     <Content Include="Documentation_Template\css\manuel.css" />
     <Content Include="Documentation_Template\css\prettyPhoto.css" />
@@ -178,6 +179,7 @@
     <Content Include="Documentation_Template\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Documentation_Template\fonts\lanenar_Lane.svg" />
     <Content Include="Documentation_Template\fonts\Stroke-Gap-Icons.svg" />
+    <Content Include="Documentation_Template\images\chatbox-icon.svg" />
     <Content Include="Documentation_Template\images\dummy.png" />
     <Content Include="Documentation_Template\images\favicon.ico" />
     <Content Include="Documentation_Template\images\prettyPhoto\dark_rounded\btnNext.png" />

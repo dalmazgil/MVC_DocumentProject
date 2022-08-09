@@ -30,9 +30,11 @@
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/css/animate.css">
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/css/prettyPhoto.css">
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Documentation_Template/css/chatbot.css">
 
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/js/syntax-highlighter/styles/shCore.css" media="all">
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/js/syntax-highlighter/styles/shThemeRDark.css" media="all">
+
 
     <!-- CUSTOM -->
     <link rel="stylesheet" type="text/css" href="~/Documentation_Template/css/custom.css">
@@ -95,10 +97,15 @@
                 @RenderSection("menu", false)
                 @RenderBody()
                 <!-- // end .col -->
-
             </div>
             <!-- // end .row -->
-
+            <div class="chatbox">
+                <div class="chatbox__button">
+                    <a href="http://10.250.250.41:8003/">
+                        <button><img src="~/Documentation_Template/images/chatbox-icon.svg" /></button>
+                    </a>
+                </div>
+            </div>
         </div>
         <!-- // end container -->
 
